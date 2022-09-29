@@ -21,7 +21,11 @@ const register = async (parent, args, { req, res }) => {
             process.env.JWT_KEY,
             { expiresIn: 60 * 60 }
         );
-        res.cookie("token", token);
+        res.cookie("token", token,{
+            httpOnly: true,
+            sameSite: "none",
+            secure:  true,
+           });
         return {
             success: true,
             message: "User created!",
