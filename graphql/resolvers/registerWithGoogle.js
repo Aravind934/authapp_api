@@ -28,7 +28,10 @@ const registerWithGoogle = async (parent, args, { req, res }) => {
             process.env.JWT_KEY,
             { expiresIn: 60 * 60 }
         );
-        res.cookie("token", token);
+        res.cookie("token", token,{
+            sameSite:"none"
+        }
+            );
         return {
             success: true,
             message: "User created!",
