@@ -23,7 +23,11 @@ const login = async (parent, args, { req, res }) => {
             process.env.JWT_KEY,
             { expiresIn: 60 * 60 * multiHours }
         );
-        res.cookie("token", token);
+        res.cookie("token", token,{
+            httpOnly: true,
+            sameSite: "none",
+            secure:  true,
+           });
         return {
             success: true,
             message: "sucess!",
