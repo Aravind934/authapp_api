@@ -29,11 +29,10 @@ const registerWithGoogle = async (parent, args, { req, res }) => {
             { expiresIn: 60 * 60 }
         );
         res.cookie("token", token, {
-      httpOnly: true,
-      sameSite: "none",
-      secure:  true,
-    })
-            );
+            httpOnly: true,
+            sameSite: "none",
+            secure:  true,
+           });
         return {
             success: true,
             message: "User created!",
