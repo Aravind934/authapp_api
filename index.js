@@ -30,7 +30,7 @@ const startServer = async () => {
         }),
     });
     const corsOptions = {
-        origin: "https://authapp.netlify.app/signIn",
+        origin: "https://authapp.netlify.app",
         credentials: true,
     };
     await server.start();
