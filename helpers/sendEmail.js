@@ -14,6 +14,8 @@ var mailOptions = {
 };
 
 const sendEmail = (email, msg) => {
+    console.log("=====================");
+    console.log(msg);
     mailOptions.to = email;
     mailOptions.html = `<center><h6>Click here to reset your password</h6><a href=${msg}>Reset</a></center>`;
     try {
