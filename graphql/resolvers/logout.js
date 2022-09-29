@@ -1,6 +1,10 @@
 const logout = (parent, args, { req, res }) => {
     try {
-        res.clearCookie("token");
+        res.clearCookie("token",{
+            httpOnly: true,
+            sameSite: "none",
+            secure:  true,
+           });
         return {
             success: true,
             message: "logout success!",
