@@ -4,8 +4,6 @@ const User = require("../../../models/User");
 const getProfile = async (parent, args, { req }) => {
     try {
         let isAuthenticated = await authenticate(req);
-        console.log("==========");
-        console.log(isAuthenticated);
         if (!isAuthenticated) throw new Error("unAuthorized");
         let user = await User.findOne({
             where: { email: isAuthenticated },
